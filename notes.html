@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Merriweather', serif;
+      color: white;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    body.fade-in { opacity: 1; }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding-top: 140px; /* space for navbar */
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('books.jpg') no-repeat center center/cover;
+      filter: blur(6px);
+      transform: scale(1.1);
+      z-index: -1;
+    }
+
+    /* Navbar */
+    .navbar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 8px 8px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+    .navbar .logo {
+      margin-left: 40px; 
+    }
+    .navbar .logo img {
+      height: 100px;
+      cursor: pointer;
+      display: block;
+    }
+    .navbar .links {
+      display: flex;
+      justify-content: center;
+      flex: 1;
+    }
+    .navbar .links a {
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      text-align: center;
+      padding: 10px 20px;
+      text-decoration: none;
+      border: 1px solid white;
+      border-radius: 5px;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+    .navbar .links a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #5a9cf2;
+      border-color: #4895fa;
+      box-shadow: 0 0 10px rgba(72, 149, 250, 0.7);
+    }
+
+    /* Notes Section */
+    .notes {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .notes h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 60px;
+      margin-bottom: 40px;
+    }
+    .note {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid white;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 3px 0;
+      font-size: 18px;
+      text-align: left;
+    }
+
+    /* Back button */
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      font-family: 'Poppins', sans-serif;
+      border: 1px solid white;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .back-btn:hover {
+      background-color: rgba(255,255,255,0.2);
+      color: #5a9cf2;
+      border-color: #4895fa;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">
+      <a href="#" onclick="parent.goHome()"><img src="logo.png" alt="Logo"></a>
+    </div>
+    <div class="links">
+      <a href="journey.html">Our Journey</a>
+      <a href="notes.html">Love Notes</a>
+      <a href="gallery.html">Photo Memories</a>
+    </div>
+  </div>
+
+  <!-- Notes Section -->
+  <div class="hero">
+    <div class="notes">
+      <h2>A Letter For You</h2>
+      <div class="note">💌 My Dearest Love,</div>
+      <div class="note">Hello, love. How are you? I hope you’re smiling as you read this.</div>
+      <div class="note">First of all, I’m deeply thankful to God for blessing me with someone like you — someone with such a pure and beautiful heart. Even though our beginning wasn’t perfect, you gave me the chance to start again, to rebuild this relationship with hope and grace. Thank you for sharing with me the gift that the Lord has given you. You trusted me, believed in me, and inspired me to become better — for myself, for us, for our families, and for the future we’re building together.</div>
+      <div class="note">I pray that the Lord will continue to guide us every single day, through every challenge we face. May we never give up, but instead grow stronger, knowing that He is with us and that He is the center of our love. I am beyond grateful to be part of your life. You’ve taught me so many things without even realizing it, and you’ve shown me what true love really means. </div>
+      <div class="note">My constant prayer is that God will protect us wherever we go, whatever we do, and hold us both in His hands so that our love becomes even stronger.</div>
+      <div class="note">You are my greatest blessing, my safe place, and my forever.</div>
+      <div class="note">I love you so much, my pancake. Happy 1st Anniversary!</div>
+      <div class="note">Forever yours, </div>
+      <div class="note">Ramel🌹</div>
+      <!-- Back Button -->
+      <a href="anniv.html" class="back-btn">⬅ Back to Anniversary</a>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("fade-in");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      opacity: 0; 
+      transition: opacity 1s ease; 
+    }
+    body.fade-in { opacity: 1; }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('windmill.jpg') no-repeat center center/cover;
+      filter: blur(6px); 
+      transform: scale(1.1);
+      z-index: -1;
+    }
+
+    .hero h1, .hero p {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1.5s ease forwards;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    }
+    .hero p { animation-delay: 0.5s; }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(50px, 8vw, 100px);
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-family: 'Merriweather', serif;
+      font-size: 18px;
+      margin-bottom: 100px;
+    }
+    .hero a {
+      font-family: 'Poppins', sans-serif;
+      background-color: transparent;
+      border: 1px solid white;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .hero a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #5a9cf2;
+      border-color: #4895fa;
+      box-shadow: 0 0 10px rgba(72, 149, 250, 0.7);
+    }
+
+    iframe {
+      width: 100%;
+      height: 100vh;
+      border: none;
+      display: none;
+    }
+    iframe.show { display: block; }
+  </style>
+</head>
+<body>
+  <!-- Music Player -->
+  <audio id="bg-music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Hero Section -->
+  <div class="hero" id="hero">
+    <h1>Happy Anniversary, My Love</h1>
+    <p>In the story of us, every chapter is better than the last.</p>
+    <a href="anniv.html" class="nav-link">Our Love Story</a>
+  </div>
+
+  <!-- Iframe -->
+  <iframe id="content-frame"></iframe>
+
+   <script>
+    // Fade-in effect
+    window.addEventListener("load", () => {
+      document.body.classList.add("fade-in");
+    });
+
+    // Music autoplay (centralized)
+    const music = document.getElementById("bg-music");
+    music.play().catch(() => {
+      console.log("Autoplay blocked. Music will start on first click.");
+    });
+    document.addEventListener("click", () => {
+      if (music.paused) music.play();
+    }, { once: true });
+
+    // Navigation handling
+    const hero = document.getElementById("hero");
+    const frame = document.getElementById("content-frame");
+
+    document.querySelectorAll(".nav-link").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        hero.style.display = "none";
+        frame.src = link.getAttribute("href");
+        frame.classList.add("show");
+      });
+    });
+
+    // Function para sa logo button ng sub-pages
+    function goHome() {
+      hero.style.display = "flex";
+      frame.classList.remove("show");
+      setTimeout(() => { frame.src = ""; frame.style.display = "none"; }, 300);
+    }
+  </script>
+</body>
+</html>
