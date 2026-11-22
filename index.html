@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Special Surprise ❤️</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+    url("us.jpg");
+    background-size:cover;
+    background-position:center;
+    color:white;
+}
+
+.container{
+padding:40px;
+border-radius:25px;
+width:90%;
+max-width:700px;
+text-align:center;
+}
+
+h1{
+    color:#ff7aa2;
+}
+
+#countdown{
+    font-size:2rem;
+    margin-top:20px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>❤️ A Special Surprise Awaits ❤️</h1>
+    <p>Come back on our anniversary.</p>
+    <div id="countdown"></div>
+</div>
+
+<script>
+const unlockDate = new Date("2027-01-07T00:00:00+08:00"); //
+
+function updateCountdown() {
+
+    const now = new Date();
+    const diff = unlockDate - now;
+
+    if(diff <= 0){
+        window.location.href = "home.html"; // totoong page mo
+        return;
+    }
+
+	const days = Math.floor(diff / (1000*60*60*24));
+	const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+	const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+	const seconds = Math.floor((diff % (1000*60)) / 1000);
+
+	document.getElementById("countdown").innerHTML =
+			`${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds ❤️`;
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
+</script>
+
+</body>
+</html>
