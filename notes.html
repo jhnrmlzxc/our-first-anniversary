@@ -30,6 +30,14 @@
       transform: scale(1.1);
       z-index: -1;
     }
+	
+	.hero::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(0,0,0,0.45);
+	z-index: -1;
+	}
 
     /* Navbar */
     .navbar {
@@ -86,15 +94,16 @@
       font-size: 60px;
       margin-bottom: 40px;
     }
-    .note {
-      background: rgba(0,0,0,0.6);
-      border: 1px solid white;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 3px 0;
-      font-size: 18px;
-      text-align: left;
-    }
+	.note {
+	background: rgba(0,0,0,0.35);
+	border-radius: 15px;
+	padding: 18px 22px;
+	margin: 10px 0;
+	font-size: 18px;
+	text-align: left;
+	line-height: 1.8;
+	backdrop-filter: blur(3px);
+	}
 
     /* Back button */
     .back-btn {
@@ -112,6 +121,13 @@
       background-color: rgba(255,255,255,0.2);
       color: #5a9cf2;
       border-color: #4895fa;
+	
+	.subtitle {
+	margin-top: -20px;
+	margin-bottom: 40px;
+	font-size: 18px;
+	color: #f5f0ea;
+	}	
     }
   </style>
 </head>
@@ -123,7 +139,7 @@
     </div>
     <div class="links">
       <a href="journey.html">Our Journey</a>
-      <a href="notes.html">Love Notes</a>
+      <a href="notes.html">Letter for you</a>
       <a href="gallery.html">Photo Memories</a>
     </div>
   </div>
@@ -132,7 +148,7 @@
   <div class="hero">
     <div class="notes">
       <h2>A Letter For You</h2>
-      <div class="note">💌 My Dearest Love,</div>
+      <div class="note"> My Dearest Love,</div>
       <div class="note">Hello, love. How are you? I hope you’re smiling as you read this.</div>
       <div class="note">First of all, I’m deeply thankful to God for blessing me with someone like you — someone with such a pure and beautiful heart. Even though our beginning wasn’t perfect, you gave me the chance to start again, to rebuild this relationship with hope and grace. Thank you for sharing with me the gift that the Lord has given you. You trusted me, believed in me, and inspired me to become better — for myself, for us, for our families, and for the future we’re building together.</div>
       <div class="note">I pray that the Lord will continue to guide us every single day, through every challenge we face. May we never give up, but instead grow stronger, knowing that He is with us and that He is the center of our love. I am beyond grateful to be part of your life. You’ve taught me so many things without even realizing it, and you’ve shown me what true love really means. </div>
